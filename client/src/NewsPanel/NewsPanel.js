@@ -1,5 +1,6 @@
 import React from 'react';
 //import './NewsPanel.css';
+import _ from 'lodash';
 import NewsCard from '../NewsCard/NewsCard';
 class NewsPanel extends React.Component {
     constructor() {
@@ -9,6 +10,8 @@ class NewsPanel extends React.Component {
 
     componentDidMount() {
         this.loadMoreNews();
+        this.loadMoreNews = _.debounce(this.loadMoreNews, 1000);
+        window.addEventListener('scroll', () => this.handleScroll());
     }
 
     loadMoreNews() {
@@ -23,6 +26,16 @@ class NewsPanel extends React.Component {
                 })
             })
     }
+    //document.body.offsetHeight
+    //scrollY
+    //window.innerHeight
+    handleScroll() {
+        let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        if(window.innerHeight + scrollY >= document.body.offsetHeight - 50) {
+            this.loadMoreNews();
+        }
+    }
+
     renderNews() {
         const news_list = this.state.news.map(news => {
             return(
