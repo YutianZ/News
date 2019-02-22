@@ -1,6 +1,6 @@
 from cloudAMQP_client import CloudAMQPClient
 
-TEST_CLOUDAMQP_URL = 'amqp://iqkabpol:QiCRaTihVSztSzCyP78w9O2r3nuT2_s0@shark.rmq.cloudamqp.com/iqkabpol'#TODO: use your own config.
+TEST_CLOUDAMQP_URL = #TODO: use your own config.
 TEST_QUEUE_NAME = 'test'#TODO: use your own config.
 
 def test_basic():
