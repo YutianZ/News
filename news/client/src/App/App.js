@@ -1,7 +1,4 @@
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize.min.js';
 import './App.css';
-
 import React from 'react';
 import logo from './logo.png';
 import NewsPanel from '../NewsPanel/NewsPanel';
