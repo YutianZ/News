@@ -21,3 +21,5 @@ class Auth {
         return localStorage.getItem('email');
     }
 }
+
+export default Auth;

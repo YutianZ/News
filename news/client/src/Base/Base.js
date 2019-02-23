@@ -11,7 +11,7 @@ import './Base.css';
 
 const logout = (history) => {
     Auth.deauthenticateUser();
-    history.pushState('/login')
+    history.push('/login')
 }
 
 const Base = withRouter(({ history }) => (
@@ -20,15 +20,15 @@ const Base = withRouter(({ history }) => (
             <div className='nav-wrapper'>
                 <a href='/' className='brand-logo'>Tap News</a>
                 <ul id='nav-mobile' className='right'>
-                    {Auth.isUserAuthenticated() ?
+                    {Auth.isUserAuthenticated() ? 
                         (<div>
-                                <li>{Auth.getEmail()}</li>
-                                <li><a onCLick={() => {logout(history)}}>Log out</a></li>
-                        </div>)
+							<li>{Auth.getEmail()}</li>
+							<li><a onClick={()=>{logout(history);}}>Log out</a></li>
+						</div>)
                         :
                         (<div>
                             <li><Link to='/login'>Log in</Link></li>
-                            <li><Link to='signup'>Sign up</Link></li>
+                            <li><Link to='/signup'>Sign up</Link></li>
                         </div>)
                     }
                 </ul>
@@ -38,6 +38,8 @@ const Base = withRouter(({ history }) => (
         <Route exact path='/' render={() => (Auth.isUserAuthenticated() ?
             (<App />) : <LoginPage />)} />
         <Route exact path='/login' component={LoginPage} />
-        <Route exact path='signup' component={SignUpPage} />
+        <Route exact path='/signup' component={SignUpPage} />
     </div>
 ))
+
+export default Base;
