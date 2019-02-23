@@ -1,6 +1,6 @@
 import LoginForm from './LoginForm';
 import React from 'react';
-import Auth from './Auth/Auth';
+import Auth from '../Auth/Auth';
 //This component handles the logic part of Login
 //export default when only export one thing
 // use { bala, bala } instead
